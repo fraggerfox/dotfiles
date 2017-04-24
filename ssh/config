@@ -1,0 +1,124 @@
+Compression yes
+
+# Git protocol
+
+Host fooobar.mooo.com
+     IdentityFile ~/.ssh/id_rsa
+     User git
+     Port 10022
+
+Host git.drup1.net
+     IdentityFile ~/.ssh/id_rsa_keenfx
+     User git
+
+Host github.com
+     IdentityFile ~/.ssh/id_rsa
+     User git
+
+# Personal Stuff
+
+Host fox-pi-lan
+     HostName 10.10.0.16
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 11122
+
+Host fox-pi-homenet
+     HostName fraggerfox.homenet.org
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 11122
+
+Host fox-pi-noip
+     HostName fraggerfox.no-ip.org
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 11122
+
+Host fox-zeta-lan
+     HostName 10.10.0.6
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22
+
+Host fox-zeta-homenet
+     HostName fraggerfox.homenet.org
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 10022
+
+Host fox-zeta-noip
+     HostName fraggerfox.no-ip.org
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 10022
+
+Host fox-psi-lan
+     HostName 10.10.0.110
+     IdentityFile ~/.ssh/id_rsa
+     User root
+     Port 22
+
+Host fox-omega-lan
+     HostName 10.10.0.100
+     IdentityFile ~/.ssh/id_rsa
+     User root
+     Port 10122
+
+Host fox-omega-homenet
+     HostName fraggerfox.homenet.org
+     IdentityFile ~/.ssh/id_rsa
+     User root
+     Port 10122
+
+Host fox-omega-noip
+     HostName fraggerfox.no-ip.org
+     IdentityFile ~/.ssh/id_rsa
+     User root
+     Port 10122
+
+Host fox-theta
+     HostName localhost
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22222
+
+# Cherry's Stuff
+
+Host kek-server
+     HostName fooobar.mooo.com
+     IdentityFile ~/.ssh/id_rsa
+     User santhosh
+     Port 11022
+
+Host hh-server
+     HostName fooobar.mooo.com
+     IdentityFile ~/.ssh/id_rsa
+     User santhosh
+     Port 10922
+
+Host pub-server
+     HostName fooobar.mooo.com
+     IdentityFile ~/.ssh/id_rsa
+     User santhosh
+     Port 10022
+
+Host ma-server
+     HostName fooobar.mooo.com
+     IdentityFile ~/.ssh/id_rsa
+     User santhosh
+     Port 11122
+
+# Trouble's Stuff
+
+Host hb-server
+     HostName hackbeach.trouble.is
+     IdentityFile ~/.ssh/id_rsa
+     User santhosh
+     Port 22
+
+Host fox-server
+     HostName fox.trouble.is
+     IdentityFile ~/.ssh/id_rsa
+     User santhosh
+     Port 22

@@ -1,0 +1,3 @@
+Crontab entry to remove mosh sessions that have been idle for too long in the RPi2
+
+*/10 * * * * for pid in `w -hi | grep "mosh \[" | awk '$3 == "mosh" && FNR>2 {print $4}'`; do echo $pid | tr -d '[]' | xargs kill -9; done

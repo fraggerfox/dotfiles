@@ -15,7 +15,7 @@ compinit
 # Customizations by Fox
 
 # This PS1
-f [ $(id -u) = "0" ]; then
+if [ $(id -u) = "0" ]; then
         PS1="[%n@%m: %~]# "
 else
         PS1="[%n@%m: %~]$ "

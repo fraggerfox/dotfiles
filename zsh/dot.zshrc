@@ -31,5 +31,23 @@ bindkey '^r' history-incremental-search-backward
 # 10ms for key sequences
 KEYTIMEOUT=1
 
+# Editor and Pager
+PAGER=less
+EDITOR=vi
+export EDITOR
+export PAGER
+
+# set CVS remote shell command
+CVS_RSH=ssh
+export CVS_RSH
+
+# NetBSD's pkgsrc settings
+PATH="$PATH:/usr/pkg/sbin:/usr/pkg/bin"
+#PKG_PATH="ftp://ftp.NetBSD.org/pub/pkgsrc/packages/OPSYS/ARCH/VERSIONS/All/"
+export PATH
+
 # This is for remote sessions with tmux
-#tmux attach -d || tmux new
+#if ! { [ -n "$TMUX" ]; } then
+#	tmux attach -d || tmux new
+#fi
+

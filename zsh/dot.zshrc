@@ -43,6 +43,7 @@ export PAGER
 # set CVS remote shell command
 CVS_RSH=ssh
 export CVS_RSH
+#export CVSROOT="anoncvs@anoncvs.NetBSD.org:/cvsroot"
 
 # NetBSD's pkgsrc settings
 PATH="$PATH:/usr/pkg/sbin:/usr/pkg/bin"

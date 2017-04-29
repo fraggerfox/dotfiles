@@ -15,7 +15,11 @@ compinit
 # Customizations by Fox
 
 # This PS1
-PS1="[%n@%m: %~]$ "
+f [ $(id -u) = "0" ]; then
+        PS1="[%n@%m: %~]# "
+else
+        PS1="[%n@%m: %~]$ "
+fi
 
 bindkey '^P' up-history
 bindkey '^N' down-history
@@ -27,4 +31,5 @@ bindkey '^r' history-incremental-search-backward
 # 10ms for key sequences
 KEYTIMEOUT=1
 
-tmux attach -d || tmux new
+# This is for remote sessions with tmux
+#tmux attach -d || tmux new

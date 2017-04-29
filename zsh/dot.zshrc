@@ -21,15 +21,18 @@ else
         PS1="[%n@%m: %~]$ "
 fi
 
-bindkey '^P' up-history
-bindkey '^N' down-history
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-bindkey '^w' backward-kill-word
-bindkey '^r' history-incremental-search-backward
+# Fix the annoying lag between Esc and / in vi mode backward 
+# command search.
+KEYTIMEOUT=1 # 10ms for key sequences
 
-# 10ms for key sequences
-KEYTIMEOUT=1
+vi-search-fix() {
+zle vi-cmd-mode
+zle .vi-history-search-backward
+}
+
+autoload vi-search-fix
+zle -N vi-search-fix
+bindkey -M viins '\e/' vi-search-fix
 
 # Editor and Pager
 PAGER=less

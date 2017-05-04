@@ -286,7 +286,67 @@ windows = {
       }
     );
   };
-  4 = { name = "hilight"; sticky = "yes"; };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#cis_india";
+        tag = "freenode";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#pkgsrc";
+        tag = "freenode";
+      }
+    );
+  };
+  6 = { name = "hilight"; sticky = "yes"; };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#hillhacks";
+        tag = "oftc";
+      }
+    );
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#infinity";
+        tag = "oftc";
+      }
+    );
+  };
+  9 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#hackbeach";
+        tag = "oftc";
+      }
+    );
+  };
+  10 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#hackbeach-server";
+        tag = "oftc";
+      }
+    );
+  };
 };
 
 mainwindows = {

@@ -55,6 +55,7 @@ channels = (
   { name = "#badnicks"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#bsdin"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#cis_india"; chatnet = "FREENODE"; autojoin = "Yes"; },
+  { name = "#pkgsrc"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#hillhacks"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#infinity"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#hackbeach"; chatnet = "OFTC"; autojoin = "Yes"; },
@@ -62,7 +63,7 @@ channels = (
     name = "#hackbeach-server";
     chatnet = "OFTC";
     autojoin = "yes";
-    password = "PASSWORD";
+    password = "***REMOVED***";
   },
   { name = "netbsd"; chatnet = "NETBSD"; autojoin = "Yes"; }
 );

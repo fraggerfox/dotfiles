@@ -1,0 +1,17 @@
+XTerm*loginShell:true
+Xcursor.theme: Vanilla-DMZ
+Xft.lcdfilter: lcddefault
+
+XTerm*background:   black
+XTerm*foreground:   yellow
+XTerm*metaSendsEscape: true
+
+XTerm*faceName:     dejavu sans mono:normal:pixelsize=12
+XTerm*saveLines: 100000
+
+
+
+urxvt*foreground: white
+urxvt*background: black
+
+

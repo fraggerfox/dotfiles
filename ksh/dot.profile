@@ -15,6 +15,6 @@ export PATH
 
 export EDITOR=vi
 export EXINIT='set autoindent'
-export PAGER=more
+export PAGER=less
 
 export ENV=$HOME/.shrc

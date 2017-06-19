@@ -1,0 +1,160 @@
+###
+A small cheat sheet on using GPG
+###
+
+===
+View existing Keys
+===
+
+gpg --list-keys
+
+===
+Generating Revocation
+===
+
+gpg --output [REVOCATION FILE NAME] --gen-revoke [KEY ID]
+
+===
+Exporting Public key
+===
+
+gpg --output [PUBLIC KEY FILE NAME] --export [KEY ID]
+
+For ASCII ouput
+---
+
+gpg --armor --export [KEY ID]
+
+===
+Importing Public key
+===
+
+gpg --import [PUBLIC KEY FILE NAME]
+
+gpg --list-keys (to see if the new key has come in)
+
+gpg --edit-key [IMPORTED KEY ID]
+
+>fpr (verify fingerprint)
+>sign (sign the key)
+>check (check the key)
+
+===
+Signing Document (Compressed)
+===
+
+gpg --output [SIGNED FILE NAME] --sign [UNSIGNED FILE NAME]
+
+Verifying Signatures
+---
+
+gpg --output [DECRYPTED FILE NAME] --decrypt [SIGNED FILE NAME]
+
+===
+Signing Document (Clearsigned)
+===
+
+gpg --clearsign [UNSIGNED FILE NAME]
+
+===
+Signing Document (Detached)
+===
+
+gpg --output [SIGNATURE FILE NAME] --detach-sig [UNSIGNED FILE NAME]
+
+===
+Verifying Documents
+===
+
+gpg --verify [SIGNED FILE NAME]
+
+
+Detached
+---
+
+gpg --verify [SIGNATURE FILE NAME] [UNSIGNED FILE NAME]
+
+===
+Ecrypting and Decrypting Documents
+===
+
+gpg --output [ENCRYPTED FILE NAME] --encrypt --recipient [RECIPIENT KEY ID]
+
+gpg --output [DECRYPTED FILE NAME] --decrypt [ENCRYPTED FILE NAME]
+
+
+Symmetric Cyphers
+---
+
+gpg --output [ENCRYPTED FILE NAME] --symmetric [UNENCRYPTED FILE NAME]
+
+===
+Distributing keys
+===
+
+gpg --keyserver [SERVER NAME] --recv-key [KEY ID]
+
+gpg --keyserver [SERVER NAME] --send-key [KEY ID]
+
+===
+Obtaining secret key back for other purposes
+===
+
+In case the secret key to the master key was removed for security purposes you
+face the following error when trying to edit the master key.
+
+***
+NOTE: Before executing you need to make sure you have backed up the Master key
+before you removed the secret part of the Master key
+***
+
+gpg: secret key parts are not available
+gpg: signing failed: Unusable secret key error
+
+To solved it delete existing master key
+
+$ gpg --delete-secret-and-public-key [KEY ID]
+
+Then import from the private and public back up
+
+$ gpg --import [private key file] [public key file]
+
+After you finish your signing work or add user work (which requires the master
+private key) make sure to follow the securing process again:
+
+$ gpg --export-secret-subkeys [KEY ID] > subkeys
+$ gpg --delete-secret-key [KEY ID]
+$ gpg --import subkeys
+$ rm subkeys
+
+===
+Backing up gpg stuff
+===
+
+gpg --export-secret-keys --armor [KEY ID] > [PRIVATE KEY FILE NAME]
+
+gpg --export --armor [KEY ID] > [PUBLIC KEY FILE NAME]
+
+gpg --export-secret-subkeys [KEY ID] > [SUBKEYS FILE NAME]
+
+===
+Important commands in gpg prompt
+===
+
+** No key selected implies changes may be applied to the primary master key
+
+> adduid - Add a new user id
+> addkey - Add a new subkey
+> key <id> - Select a key
+> uid <id> - Select a uid
+> sign - Sign a key
+> check - Check a key
+> fpr - Display fingerprint of the key
+
+After a key / uid is selected then you apply
+
+> deluid - Delete user id
+> delkey - Delete subkey
+> revkey - Revoke a key
+> revsig - Revoke a signature
+> trust - Change the trust level of a key

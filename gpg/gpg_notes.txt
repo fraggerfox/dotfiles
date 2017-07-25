@@ -62,14 +62,18 @@ Signing Document (Detached)
 
 gpg --output [SIGNATURE FILE NAME] --detach-sig [UNSIGNED FILE NAME]
 
+For ASCII output
+---
+
+gpg --armor --output [SIGNATURE FILE NAME] --detach-sig [UNSIGNED FILE NAME]
+
 ===
 Verifying Documents
 ===
 
 gpg --verify [SIGNED FILE NAME]
 
-
-Detached
+For Detached Signatures
 ---
 
 gpg --verify [SIGNATURE FILE NAME] [UNSIGNED FILE NAME]

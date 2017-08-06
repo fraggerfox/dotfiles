@@ -1,20 +1,35 @@
-#	$NetBSD: dot.profile,v 1.4.26.1 2008/11/20 03:37:42 snj Exp $
-#
-# This is the default .profile file.
-# Users are expected to edit it to meet their own needs.
-#
-# The commands in this file are executed when an sh user first
-# logs in.
-#
-# See sh(1) for details.
-#
+#       $NetBSD: dot.profile,v 1.26.12.1 2014/12/01 21:17:21 martin Exp $
 
-PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R7/bin:/usr/X11R6/bin:/usr/pkg/bin
-PATH=${PATH}:/usr/pkg/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
-export PATH
+export PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/pkg/sbin:/usr/pkg/bin
+export PATH=${PATH}:/usr/X11R7/bin:/usr/X11R6/bin:/usr/local/sbin:/usr/local/bin
 
+# Uncomment the following line(s) to install binary packages
+# from ftp.NetBSD.org via pkg_add.  (See also pkg_install.conf)
+export PKG_PATH=ftp://ftp.NetBSD.org/pub/pkgsrc/packages/NetBSD/$(uname -m)/7.1/All
+#export PKG_PATH="${PKG_PATH};ftp://ftp.NetBSD.org/pub/pkgsrc/packages/NetBSD/$(uname -m)/6.0/All"
+
+export BLOCKSIZE=1k
+
+export HOST="$(hostname)"
+
+if [ -x /usr/bin/tset ]; then
+	eval $(tset -sQrm 'unknown:?unknown')
+fi
+
+umask 022
+#ulimit -c 0
+
+# Set some of the common shell variables
+export ENV=$HOME/.shrc
 export EDITOR=vi
-export EXINIT='set autoindent'
 export PAGER=less
 
-export ENV=$HOME/.shrc
+# Do not display in 'su -' case
+if [ -z "$SU_FROM" ] && [ -z `id -u` ]; then
+	echo "We recommend that you create a non-root account and use su(1) for root access."
+fi
+
+# Set the CVS variables
+export CVSEDITOR=vi
+export CVSROOT=anoncvs@anoncvs.NetBSD.org:/cvsroot
+export CVS_RSH=ssh

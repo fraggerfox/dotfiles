@@ -1,0 +1,70 @@
+;; Define the load-path for the various custom modules
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+;; Prevent creation of backup Files
+(setq make-backup-files nil)
+
+;; Remove trailing whitespaces
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; ================================
+;; Enable Line and Column Numbering
+;; ================================
+
+;; Show line-number in the mode line
+(line-number-mode 1)
+
+;; Show column-number in the mode line
+(column-number-mode 1)
+
+;; Show Line numbers in emacs :) like in vi
+;;(require 'setnu)
+
+;; Font Lock Mode for Syntax Highlighting
+(font-lock-mode 1)
+
+;; Enable visual feedback for 80 column
+;(require 'fill-column-indicator)
+
+(setq fci-rule-width 1)
+(setq fci-rule-color "blue")
+(setq fci-rule-use-dashes 1)
+(setq fci-dash-pattern 0.5)
+
+;; Set the 78 column limit
+(setq set-fill-column 78)
+
+;; ============================
+;; Key mappings
+;; ============================
+
+;; Set Key to Exit Emacs
+;;(global-set-key [f5] 'kill-emacs)
+
+;; Set Key to Put file in read only mode
+(global-set-key [f4] 'view-mode)
+
+;; Set Key to Open file in read only mode
+(global-set-key [f3] 'find-file-read-only)
+
+;; Set Key to Open file in read only mode
+(global-set-key [f2] 'read-only-mode)
+
+;; Set Key C-x p to go to the previous window
+;; Opposite of C-x o
+(defun select-previous-window ()
+"Switch to the previous window"
+(interactive)
+(select-window (previous-window)))
+
+(global-set-key (kbd "C-x p") 'select-previous-window)
+
+;; highlight matches from searches
+(setq isearch-highlight t)
+(setq search-highlight t)
+(setq-default transient-mark-mode t)

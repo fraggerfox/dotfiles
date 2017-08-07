@@ -63,7 +63,7 @@ channels = (
     name = "#hackbeach-server";
     chatnet = "OFTC";
     autojoin = "yes";
-    password = "***REMOVED***";
+    password = "PASSWORD";
   },
   { name = "netbsd"; chatnet = "NETBSD"; autojoin = "Yes"; }
 );

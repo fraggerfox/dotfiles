@@ -20,6 +20,9 @@ servers = (
     chatnet = "OFTC";
     port = "6697";
     use_ssl = "yes";
+    use_tls = "yes";
+    tls_cert = "~/.irssi/certs/fragger_fox.pem";
+    tls_verify = "yes";
     autoconnect = "yes";
   }
 );
@@ -40,7 +43,7 @@ chatnets = {
 
   OFTC = {
     type = "IRC";
-    autosendcmd = "/msg nickserv identify PASSWORD fragger_fox;wait 2000";
+    #autosendcmd = "/msg nickserv identify PASSWORD fragger_fox;wait 2000";
     nick = "fragger_fox";
     max_kicks = "4";
     max_msgs = "4";
@@ -250,9 +253,6 @@ settings = {
     user_name = "fox";
     nick = "fox";
     timestamp_format = "= %H:%M:%S";
-    #    real_name = "Fox";
-    #    user_name = "fox";
-    #    nick = "fox";
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "perl/core/scripts" = {
@@ -260,7 +260,7 @@ settings = {
     awl_block = "-15";
     awl_viewer = "no";
   };
-  "fe-common/core" = { autolog = "yes"; };
+  "fe-common/core" = { autolog = "yes"; theme = "default"; };
 };
 
 hilights = ( { text = "fragger_fox"; nick = "yes"; word = "yes"; } );

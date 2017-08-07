@@ -16,6 +16,7 @@ if [ -x /usr/bin/tset ]; then
 	eval $(tset -sQrm 'unknown:?unknown')
 fi
 
+# file permissions: rwxr-xr-x
 umask 022
 #ulimit -c 0
 
@@ -23,6 +24,19 @@ umask 022
 export ENV=$HOME/.shrc
 export EDITOR=vi
 export PAGER=less
+
+# some useful aliases
+alias h='fc -l'
+alias j=jobs
+alias m=$PAGER
+alias ll='ls -laFo'
+alias l='ls -l'
+alias g='egrep -i'
+
+# # be paranoid
+# alias cp='cp -ip'
+# alias mv='mv -i'
+# alias rm='rm -i'
 
 # Do not display in 'su -' case
 if [ -z "$SU_FROM" ] && [ -z `id -u` ]; then

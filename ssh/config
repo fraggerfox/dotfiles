@@ -1,5 +1,3 @@
-Compression yes
-
 # Git protocol
 
 Host fooobar.mooo.com
@@ -23,14 +21,20 @@ Host fox-pi-lan
      User fox
      Port 11122
 
-Host fox-pi-homenet
-     HostName fraggerfox.homenet.org
+Host fox-pi-noip
+     HostName fraggerfox.no-ip.org
      IdentityFile ~/.ssh/id_rsa
      User fox
      Port 11122
 
-Host fox-pi-noip
-     HostName fraggerfox.no-ip.org
+Host fox-pi-port0
+     HostName fraggerfox.port0.org
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 11122
+
+Host fox-pi-ftpsh
+     HostName fraggerfox.ftp.sh
      IdentityFile ~/.ssh/id_rsa
      User fox
      Port 11122
@@ -41,8 +45,14 @@ Host fox-zeta-lan
      User fox
      Port 22
 
-Host fox-zeta-homenet
-     HostName fraggerfox.homenet.org
+Host fox-zeta-port0
+     HostName fraggerfox.port0.org
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 10022
+
+Host fox-zeta-ftpsh
+     HostName fraggerfox.ftp.sh
      IdentityFile ~/.ssh/id_rsa
      User fox
      Port 10022
@@ -65,8 +75,8 @@ Host fox-omega-lan
      User root
      Port 10122
 
-Host fox-omega-homenet
-     HostName fraggerfox.homenet.org
+Host fox-omega-port0
+     HostName fraggerfox.port0.org
      IdentityFile ~/.ssh/id_rsa
      User root
      Port 10122
@@ -77,11 +87,29 @@ Host fox-omega-noip
      User root
      Port 10122
 
+Host fox-omega-ftpsh
+     HostName fraggerfox.ftp.sh
+     IdentityFile ~/.ssh/id_rsa
+     User root
+     Port 10122
+
 Host fox-theta
      HostName localhost
      IdentityFile ~/.ssh/id_rsa
      User fox
      Port 22222
+
+Host fox-sigma
+     HostName localhost
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 32222
+
+Host fox-iota
+     HostName localhost
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 42222
 
 # Cherry's Stuff
 
@@ -122,3 +150,61 @@ Host fox-server
      IdentityFile ~/.ssh/id_rsa
      User santhosh
      Port 22
+
+# Abhimanyu Server
+
+Host manyu-server
+     HostName 192.99.6.219
+     IdentityFile ~/.ssh/id_rsa
+     User santosh
+     Port 22
+
+Host planet-express
+#     HostName 144.76.78.188
+     HostName planet-express.manyu.in
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22
+
+Host fox-build
+#     HostName 144.76.78.188
+     HostName planet-express.manyu.in
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22222
+
+# NetBSD Stuff
+
+Host wip.pkgsrc.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa
+
+Host cvs.netbsd.org
+     HostName cvs.netbsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_netbsd
+     User fox
+     ForwardAgent true
+
+Host netbsd-mail # mail.netbsd.org (mail server)
+     HostName homeworld.netbsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_netbsd
+     User fox
+
+Host netbsd-ftp # {ftp,sup}.NetBSD.org (ftp/sup/rsync server)
+     HostName morden.netbsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_netbsd
+     User fox
+
+Host netbsd-www # {www,gnats,wiki}.NetBSD.org (http/gnats server)
+     HostName mollari.netbsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_netbsd
+     User fox
+
+# Generic settings for all hosts
+
+Host *
+     Compression yes

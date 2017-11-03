@@ -44,6 +44,7 @@ chatnets = {
   OFTC = {
     type = "IRC";
     #autosendcmd = "/msg nickserv identify PASSWORD fragger_fox;wait 2000";
+    autosendcmd = "/nick fragger_fox;wait 300000";
     nick = "fragger_fox";
     max_kicks = "4";
     max_msgs = "4";

@@ -166,12 +166,26 @@ Host planet-express
      User fox
      Port 22
 
-Host fox-build
-#     HostName 144.76.78.188
-     HostName planet-express.manyu.in
+Host freebsd-test-pe
+     ProxyJump planet-express
+     HostName 172.16.0.6
      IdentityFile ~/.ssh/id_rsa
      User fox
-     Port 22222
+     Port 22
+
+Host netbsd-build-pe
+     ProxyJump planet-express
+     HostName 172.16.0.5
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22
+
+Host ubuntu-test-pe
+     ProxyJump planet-express
+     HostName 172.16.0.2
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22
 
 # NetBSD Stuff
 

@@ -24,6 +24,8 @@ mpdscribble &
 xrdb ~/.Xresources &
 #xrdb -merge .Xdefaults
 
+xmodmap ~/.Xmodmap
+
 nohup ~/programs/scripts/battery/battery_monitor.sh &
 
 #export GDK_NATIVE_WINDOWS=true

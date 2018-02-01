@@ -82,7 +82,7 @@ gpg --verify [SIGNATURE FILE NAME] [UNSIGNED FILE NAME]
 Ecrypting and Decrypting Documents
 ===
 
-gpg --output [ENCRYPTED FILE NAME] --encrypt --recipient [RECIPIENT KEY ID]
+gpg --output [ENCRYPTED FILE NAME] --encrypt --recipient [RECIPIENT KEY ID] [UNENCRYPTED FILE NAME]
 
 gpg --output [DECRYPTED FILE NAME] --decrypt [ENCRYPTED FILE NAME]
 

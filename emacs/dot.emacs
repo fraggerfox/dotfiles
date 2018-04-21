@@ -1,19 +1,14 @@
-;; Define the load-path for the various custom modules
+;; Define the load-path for the various custom modules that does not
+;; have any specific configuration sections
+
+(add-to-list 'load-path "~/.emacs_custom/")
+(add-to-list 'load-path "~/.emacs_custom/popup/")
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
-
-(add-to-list 'load-path "~/.emacs_custom/")
-(add-to-list 'load-path "~/.emacs_custom/netbsd/")
-(add-to-list 'load-path "~/.emacs_custom/multiple-cursors/")
-(add-to-list 'load-path "~/.emacs_custom/auto-complete/")
-(add-to-list 'load-path "~/.emacs_custom/popup/")
-; (add-to-list 'load-path "~/.emacs_custom/php/")
-; (add-to-list 'load-path "~/.emacs_custom/drupal-mode/")
-(add-to-list 'load-path "~/.emacs_custom/go-mode/")
 
 ;; Prevent creation of backup Files
 (setq make-backup-files nil)
@@ -45,7 +40,7 @@
 (setq fci-rule-use-dashes 1)
 (setq fci-dash-pattern 0.5)
 
-;; Set the 78 column limit
+;; Set the 72 column limit
 (setq set-fill-column 72)
 
 ;; ============================
@@ -97,7 +92,8 @@
 ;; Associate c-mode with the .ec extension
 (setq auto-mode-alist (append '(("\\.ec$" . c-mode)) auto-mode-alist))
 
-;; NetBSD KNF for C/C++
+;; OpenBSD KNF for C/C++
+(add-to-list 'load-path "~/.emacs_custom/netbsd/")
 (load-library "netbsd-knf-style")
 (c-add-style "NetBSD" netbsd-knf-style)
 (setq c-default-style '((c-mode . "NetBSD")))
@@ -142,29 +138,32 @@
 (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
 (multi-web-global-mode 1)
 
+;;(add-to-list 'load-path "~/.emacs_custom/php/")
+;;(add-to-list 'load-path "~/.emacs_custom/drupal-mode/")
+;;
 ;;(require 'drupal-mode)
-;;;; (defun drupal-mode ()
-;;;;   "Drupal php-mode."
-;;;;   (interactive)
-;;;;   (php-mode)
-;;;;   (message "Drupal mode activated.")
-;;;;   (set 'tab-width 2)
-;;;;   (set 'c-basic-offset 2)
-;;;;   (set 'indent-tabs-mode nil)
-;;;;   (c-set-offset 'case-label '+)
-;;;;   (c-set-offset 'arglist-intro '+) ; for FAPI arrays and DBTNG
-;;;;   (c-set-offset 'arglist-cont-nonempty 'c-lineup-math) ; for DBTNG fields and values
-;;;;   ; More Drupal-specific customizations here
-;;;; )
+;; (defun drupal-mode ()
+;;   "Drupal php-mode."
+;;   (interactive)
+;;   (php-mode)
+;;   (message "Drupal mode activated.")
+;;   (set 'tab-width 2)
+;;   (set 'c-basic-offset 2)
+;;   (set 'indent-tabs-mode nil)
+;;   (c-set-offset 'case-label '+)
+;;   (c-set-offset 'arglist-intro '+) ; for FAPI arrays and DBTNG
+;;   (c-set-offset 'arglist-cont-nonempty 'c-lineup-math) ; for DBTNG fields and values
+;;   ; More Drupal-specific customizations here
+;; )
 ;;
-;;;; (defun setup-php-drupal ()
-;;;;   ; Drupal
-;;;;   (add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
-;;;;   (add-to-list 'auto-mode-alist '("/drupal.*\\.\\(php\\|inc\\)$" . drupal-mode))
-;;;;   (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
-;;;; )
+;;(defun setup-php-drupal ()
+;;  ; Drupal
+;;  (add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
+;;  (add-to-list 'auto-mode-alist '("/drupal.*\\.\\(php\\|inc\\)$" . drupal-mode))
+;;  (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
+;;)
 ;;
-;;;; (setup-php-drupal)
+;;(setup-php-drupal)
 
 ;; ================================
 ;; nasm support for emacs
@@ -177,12 +176,23 @@
 ;; Golang for emacs
 ;; ================================
 
+(add-to-list 'load-path "~/.emacs_custom/go-mode/")
 (require 'go-mode-autoloads)
+
+;; ================================
+;; Erlang for emacs
+;; ================================
+
+(setq load-path (cons  "/cygdrive/d/dev/tools/erl/lib/tools-2.11.2/emacs" load-path))
+(setq erlang-root-dir "/cygdrive/d/dev/tools/erl")
+(setq exec-path (cons "/cygdrive/d/dev/tools/erl/bin" exec-path))
+(require 'erlang-start)
 
 ;; ================================
 ;; Auto Complete for emacs
 ;; ================================
 
+(add-to-list 'load-path "~/.emacs_custom/auto-complete/")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs_custom/auto-complete/dict")
 (ac-config-default)
@@ -198,14 +208,12 @@
 (setq org-log-done 'note)
 (setq org-log-done 'time)
 
-(setq org-agenda-files (list "/cygdrive/d/dev/projects/todo_list/cherry_dues.org"))
-
 ;; ================================
 ;; Try to define the Scheme program set up for emacs
 ;; ================================
 
-(defvar mzscheme-program  "d:/dev/tools/mzscheme/mzscheme.exe")
-(setq scheme-program-name "d:/dev/tools/mzscheme/mzscheme.exe")
+(defvar mzscheme-program  "/cygdrive/d/dev/tools/mzscheme/mzscheme.exe")
+(setq scheme-program-name "/cygdrive/d/dev/tools/mzscheme/mzscheme.exe")
 
 ;; Start up Scheme
 (global-set-key [(f5)]
@@ -214,16 +222,16 @@
 		   (require 'quack)
 		   (run-scheme mzscheme-program)))
 
-
 ;; ================================
 ;; Enable the cool multi-cursor mode
 ;; ================================
 
+;(add-to-list 'load-path "~/.emacs_custom/multiple-cursors/")
 ;(require 'multiple-cursors)
 ;(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-line)
-;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; ================================
 ;; Node.js / Javascript Programming Settings
@@ -270,7 +278,10 @@
  '(custom-enabled-themes (quote (wheatgrass)))
  '(fill-column 80)
  '(inhibit-startup-screen t)
- '(org-agenda-files "~/.agenda_files" t)
+ '(org-agenda-files "~/.agenda_files")
+ '(org-replace-disputed-keys nil)
+ '(org-support-shift-select nil)
+ '(org-treat-S-cursor-todo-selection-as-state-change nil)
  '(package-selected-packages (quote (## web-mode php-mode magit ac-js2 ac-html)))
  '(show-paren-mode t))
 

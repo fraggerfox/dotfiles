@@ -5,6 +5,10 @@ Host fooobar.mooo.com
      User git
      Port 10022
 
+Host byisystems.com
+     IdentityFile ~/.ssh/id_rsa_byi
+     User git
+
 Host git.drup1.net
      IdentityFile ~/.ssh/id_rsa_keenfx
      User git
@@ -137,6 +141,13 @@ Host ma-server
      User santhosh
      Port 11122
 
+Host byi-web-server
+     Hostname 128.199.87.51
+     IdentityFile ~/.ssh/id_rsa_byi
+     User fox
+     #User root
+     Port 22
+
 # Trouble's Stuff
 
 Host hb-server
@@ -161,6 +172,7 @@ Host manyu-server
 
 Host planet-express
 #     HostName 144.76.78.188
+#     HostName 144.76.78.226
      HostName planet-express.manyu.in
      IdentityFile ~/.ssh/id_rsa
      User fox

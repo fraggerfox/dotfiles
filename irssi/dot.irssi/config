@@ -30,7 +30,7 @@ servers = (
 chatnets = {
   FREENODE = {
     type = "IRC";
-    #autosendcmd = "/msg nickserv identify fragger_fox PASSWORD;wait 2000";
+    autosendcmd = "^nick fragger_fox;wait 300000";
     max_kicks = "4";
     max_msgs = "4";
     max_whois = "5";
@@ -43,8 +43,7 @@ chatnets = {
 
   OFTC = {
     type = "IRC";
-    #autosendcmd = "/msg nickserv identify PASSWORD fragger_fox;wait 2000";
-    autosendcmd = "/nick fragger_fox;wait 300000";
+    autosendcmd = "^msg nickserv identify PASSWORD fragger_fox;wait 2000";
     nick = "fragger_fox";
     max_kicks = "4";
     max_msgs = "4";
@@ -58,10 +57,9 @@ chatnets = {
 channels = (
   { name = "#badnicks"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#bsdin"; chatnet = "FREENODE"; autojoin = "Yes"; },
-  { name = "#cis_india"; chatnet = "FREENODE"; autojoin = "Yes"; },
+  { name = "#bkmc"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#pkgsrc"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#hillhacks"; chatnet = "OFTC"; autojoin = "Yes"; },
-  { name = "#infinity"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#hackbeach"; chatnet = "OFTC"; autojoin = "Yes"; },
   {
     name = "#hackbeach-server";
@@ -69,6 +67,7 @@ channels = (
     autojoin = "yes";
     password = "PASSWORD";
   },
+  { name = "#planet-express"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "netbsd"; chatnet = "NETBSD"; autojoin = "Yes"; }
 );
 
@@ -293,7 +292,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#cis_india";
+        name = "#bkmc";
         tag = "freenode";
       }
     );
@@ -324,7 +323,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#infinity";
+        name = "#hackbeach";
         tag = "oftc";
       }
     );
@@ -334,7 +333,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#hackbeach";
+        name = "#hackbeach-server";
         tag = "oftc";
       }
     );
@@ -344,7 +343,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#hackbeach-server";
+        name = "#planet-express";
         tag = "oftc";
       }
     );
@@ -353,7 +352,7 @@ windows = {
 
 mainwindows = {
   2 = { first_line = "8"; lines = "54"; };
-  4 = { first_line = "1"; lines = "7"; };
+  6 = { first_line = "1"; lines = "7"; };
 };
 
 logs = { OPEN = { level = "ALL"; }; };

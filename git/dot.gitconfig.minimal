@@ -1,17 +1,7 @@
-[merge]
-	tool = emerge
-[mergetool "kdiff3"]
-	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
-[diff]
-	guitool = kdiff3
-[difftool "kdiff3"]
-	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
 [core]
 	editor = emacs
 	autocrlf = false
 	compression = 0
-[credential]
-	helper = !\\\"C:/Program Files (x86)/GitExtensions/GitCredentialWinStore/git-credential-winstore.exe\\\"
 [user]
 	name = fraggerfox
 	email =

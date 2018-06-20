@@ -31,7 +31,7 @@ setenv	CVSEDITOR  vi
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
-	set prompt = "[%N@%m: %~]%# "
+	set prompt = "[%N@%m: %~]%# " 
 	set promptchars = "%#"
 
 	set filec

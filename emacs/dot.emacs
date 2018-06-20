@@ -14,7 +14,12 @@
 (setq make-backup-files nil)
 
 ;; Remove trailing whitespaces
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(defun saving-clean-up-hook ()
+  ; We do not want whitespace changes when editing diffs/patches
+  (when (not (eq major-mode 'diff-mode))
+    (delete-trailing-whitespace)))
+
+(add-hook 'before-save-hook #'saving-clean-up-hook)
 
 ;; ================================
 ;; Enable Line and Column Numbering
@@ -42,6 +47,25 @@
 
 ;; Set the 72 column limit
 (setq set-fill-column 72)
+
+;; ================================
+;; Enable rename of current file and buffer
+;; ================================
+
+(defun rename-file-and-buffer ()
+  "Rename the current buffer and file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (message "Buffer is not visiting a file!")
+      (let ((new-name (read-file-name "New name: " filename)))
+        (cond
+         ((vc-backend filename) (vc-rename-file filename new-name))
+         (t
+          (rename-file filename new-name t)
+          (set-visited-file-name new-name t t)))))))
+
+(global-set-key (kbd "C-c r")  'rename-file-and-buffer)
 
 ;; ============================
 ;; Key mappings
@@ -72,6 +96,15 @@
 (setq isearch-highlight t)
 (setq search-highlight t)
 (setq-default transient-mark-mode t)
+
+;; ================================
+;; Auto Complete for emacs
+;; ================================
+
+(add-to-list 'load-path "~/.emacs_custom/auto-complete/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs_custom/auto-complete/dict")
+(ac-config-default)
 
 ;; ================================
 ;; C Programming Settings
@@ -183,19 +216,52 @@
 ;; Erlang for emacs
 ;; ================================
 
+(add-to-list 'load-path "~/.emacs_custom/distel/elisp/")
+(add-to-list 'load-path "~/.emacs_custom/distel-completion/")
+(add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
+(add-to-list 'auto-mode-alist '("\\.hrl?$" . erlang-mode))
 (setq load-path (cons  "/cygdrive/d/dev/tools/erl/lib/tools-2.11.2/emacs" load-path))
+(require 'erlang-start)
 (setq erlang-root-dir "/cygdrive/d/dev/tools/erl")
 (setq exec-path (cons "/cygdrive/d/dev/tools/erl/bin" exec-path))
-(require 'erlang-start)
+(setq erlang-man-root-dir "/cygdrive/d/dev/tools/erl/man")
 
-;; ================================
-;; Auto Complete for emacs
-;; ================================
+(require 'distel)
+(distel-setup)
 
-(add-to-list 'load-path "~/.emacs_custom/auto-complete/")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs_custom/auto-complete/dict")
-(ac-config-default)
+;; prevent annoying hang-on-compile
+(defvar inferior-erlang-prompt-timeout t)
+;; default node name to emacs@localhost
+(setq inferior-erlang-machine-options '("-sname" "emacs"))
+;; tell distel to default to that node
+(setq erl-nodename-cache
+      (make-symbol
+       (concat
+        "emacs@"
+	(car (split-string (shell-command-to-string "hostname"))))))
+
+(add-hook 'after-init-hook 'global-company-mode)
+
+;(add-hook 'after-init-hook 'global-auto-complete-mode)
+
+(require 'company-distel)
+
+(eval-after-load 'company
+  '(progn
+     (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
+     (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)))
+
+(eval-after-load 'company
+  '(progn
+     (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
+     (define-key company-active-map (kbd "<backtab>") 'company-select-previous)))
+
+(setq company-distel-popup-help t)
+(setq company-distel-popup-height 30)
+(setq company-auto-complete t)
+
+;(require 'auto-complete-distel)
+;(add-to-list 'ac-sources 'auto-complete-distel)
 
 ;; ================================
 ;; org-mode settings
@@ -282,7 +348,7 @@
  '(org-replace-disputed-keys nil)
  '(org-support-shift-select nil)
  '(org-treat-S-cursor-todo-selection-as-state-change nil)
- '(package-selected-packages (quote (## web-mode php-mode magit ac-js2 ac-html)))
+ '(package-selected-packages (quote (company ## web-mode php-mode magit ac-js2 ac-html)))
  '(show-paren-mode t))
 
 (custom-set-faces

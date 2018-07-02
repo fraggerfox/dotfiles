@@ -1,20 +1,26 @@
-# This PS1
-# PS1="[%n@%m: %~]$ "
-
-set -o vi
+# don't put duplicate lines in the history. See bash(1) for more options
+export HISTCONTROL=ignoredups
+# ... and ignore same sucessive entries.
+export HISTCONTROL=ignoreboth
+# Remember a lot of commands
+export HISTSIZE=500000
 
 # CVS Stuff
-CVSEDITOR=vi
-CVSROOT=anoncvs@anoncvs.NetBSD.org:/cvsroot
-CVS_RSH=ssh
-export CVSEDITOR
-export CVSROOT
-export CVS_RSH
+export CVSEDITOR=vi
+#CVSROOT=anoncvs@anoncvs.NetBSD.org:/cvsroot
+export CVSROOT=fox@cvs.NetBSD.org:/cvsroot
+export CVS_RSH=ssh
 
 export EDITOR=vi
 
+set -o vi
+
 export DISPLAY=:0.0
 
+# Golang stuff
 export GOROOT=d:\\dev\\tools\\go
-
 export PATH=/cygdrive/d/dev/tools/go/bin:$PATH
+
+# Erlang stuff
+export ERLHOME=/cygdrive/d/dev/tools/erl
+export PATH=/cygdrive/d/dev/tools/erl/bin:$PATH

@@ -16,8 +16,8 @@ force_colored_prompt=yes
 
 alias ls='ls --color=auto -F'
 alias emacs='emacs -nw'
-alias rm='rm -i' 
-alias cp='cp -i'
+#alias rm='rm -i' 
+#alias cp='cp -i'
 
 #Default Editor
 export EDITOR='vi'

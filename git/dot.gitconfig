@@ -1,22 +1,15 @@
-[merge]
-	tool = emerge
-[mergetool "kdiff3"]
-	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
-[diff]
-	guitool = kdiff3
-[difftool "kdiff3"]
-	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
 [core]
 	editor = emacs
 	autocrlf = false
 	compression = 0
-[credential]
-	helper = !\\\"C:/Program Files (x86)/GitExtensions/GitCredentialWinStore/git-credential-winstore.exe\\\"
 [user]
 	name = fraggerfox
-	email =
+	email = santhosh.raju@gmail.com
 [alias]
 	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
   	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
   	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lgf = log --follow --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+#[mergetool "ediff"]
+#	path = /usr/bin/emacs -Q "$@"

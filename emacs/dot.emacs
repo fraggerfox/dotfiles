@@ -220,7 +220,8 @@
 (add-to-list 'load-path "~/.emacs_custom/distel-completion/")
 (add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
 (add-to-list 'auto-mode-alist '("\\.hrl?$" . erlang-mode))
-(setq load-path (cons  "/cygdrive/d/dev/tools/erl/lib/tools-2.11.2/emacs" load-path))
+;(setq load-path (cons  "/cygdrive/d/dev/tools/erl/lib/tools-2.11.2/emacs" load-path))
+(setq load-path (cons  "~/.emacs_custom/erl-mode/" load-path))
 (require 'erlang-start)
 (setq erlang-root-dir "/cygdrive/d/dev/tools/erl")
 (setq exec-path (cons "/cygdrive/d/dev/tools/erl/bin" exec-path))
@@ -324,7 +325,7 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-(autoload 'gfm-mode "gfm-mode"
+(autoload 'gfm-mode "markdown-mode"
   "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 

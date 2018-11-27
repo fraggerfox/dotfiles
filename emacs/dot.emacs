@@ -13,13 +13,29 @@
 ;; Prevent creation of backup Files
 (setq make-backup-files nil)
 
+;; ================================
 ;; Remove trailing whitespaces
+;; ================================
+
 (defun saving-clean-up-hook ()
   ; We do not want whitespace changes when editing diffs/patches
   (when (not (eq major-mode 'diff-mode))
     (delete-trailing-whitespace)))
 
-(add-hook 'before-save-hook #'saving-clean-up-hook)
+(defun enable-clean-up-hook ()
+  (interactive)
+  (message "Whitespace clean up ON.")
+  (add-hook 'before-save-hook #'saving-clean-up-hook))
+
+(defun disable-clean-up-hook ()
+  (interactive)
+  (message "Whitespace clean up OFF.")
+  (remove-hook 'before-save-hook #'saving-clean-up-hook))
+
+(global-set-key [f5] #'enable-clean-up-hook)
+(global-set-key [f6] #'disable-clean-up-hook)
+
+;(add-hook 'before-save-hook #'saving-clean-up-hook)
 
 ;; ================================
 ;; Enable Line and Column Numbering
@@ -74,13 +90,10 @@
 ;; Set Key to Exit Emacs
 ;;(global-set-key [f5] 'kill-emacs)
 
-;; Set Key to Put file in read only mode
-(global-set-key [f4] 'view-mode)
-
 ;; Set Key to Open file in read only mode
 (global-set-key [f3] 'find-file-read-only)
 
-;; Set Key to Open file in read only mode
+;; Set Key to Put file in read only mode
 (global-set-key [f2] 'read-only-mode)
 
 ;; Set Key C-x p to go to the previous window
@@ -142,6 +155,16 @@
     (insert-char ? )))
 
 ;(global-set-key (kbd "SPC") 'insert-space-or-newline-and-indent)
+
+;; ================================
+;; diff / patch editing settings
+;; ================================
+
+(add-hook 'diff-mode-hook 'whitespace-mode)
+
+(add-to-list 'auto-mode-alist '("\\.patch\\'" . diff-mode))
+(add-to-list 'auto-mode-alist '("\\.diff\\'" . diff-mode))
+(add-to-list 'auto-mode-alist '("patch-" . diff-mode))
 
 ;; ================================
 ;; PHP Programming Settings
@@ -283,7 +306,7 @@
 (setq scheme-program-name "/cygdrive/d/dev/tools/mzscheme/mzscheme.exe")
 
 ;; Start up Scheme
-(global-set-key [(f5)]
+(global-set-key [(f12)]
 		'(lambda ()
 		   (interactive)
 		   (require 'quack)

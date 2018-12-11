@@ -167,6 +167,20 @@
 (add-to-list 'auto-mode-alist '("patch-" . diff-mode))
 
 ;; ================================
+;; Conflict / Merge settings
+;; ================================
+
+(defun smerge-try-smerge ()
+  (save-excursion
+    (goto-char (point-min))
+    (when (re-search-forward "^<<<<<<< " nil t)
+      (require 'smerge-mode)
+      (smerge-mode 1))))
+
+(add-hook 'find-file-hook 'smerge-try-smerge t)
+(add-hook 'after-revert-hook 'smerge-try-smerge t)
+
+;; ================================
 ;; PHP Programming Settings
 ;; ================================
 (add-hook 'web-mode

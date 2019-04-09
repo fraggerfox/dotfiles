@@ -9,6 +9,12 @@ View existing Keys
 gpg --list-keys
 
 ===
+View existing Secret Keys
+===
+
+gpg --list-secret-keys
+
+===
 Generating Revocation
 ===
 
@@ -33,7 +39,7 @@ gpg --import [PUBLIC KEY FILE NAME]
 
 gpg --list-keys (to see if the new key has come in)
 
-gpg --edit-key [IMPORTED KEY ID]
+gpg --local-user [PREFERRED KEY ID] --edit-key [IMPORTED KEY ID]
 
 >fpr (verify fingerprint)
 >sign (sign the key)
@@ -43,54 +49,54 @@ gpg --edit-key [IMPORTED KEY ID]
 Signing Document (Compressed)
 ===
 
-gpg --output [SIGNED FILE NAME] --sign [UNSIGNED FILE NAME]
+gpg --local-user [PREFERRED KEY ID] --output [SIGNED FILE NAME] --sign [UNSIGNED FILE NAME]
 
 Verifying Signatures
 ---
 
-gpg --output [DECRYPTED FILE NAME] --decrypt [SIGNED FILE NAME]
+gpg --local-user [PREFERRED KEY ID] --output [DECRYPTED FILE NAME] --decrypt [SIGNED FILE NAME]
 
 ===
 Signing Document (Clearsigned)
 ===
 
-gpg --clearsign [UNSIGNED FILE NAME]
+gpg --local-user [PREFERRED KEY ID] --clearsign [UNSIGNED FILE NAME]
 
 ===
 Signing Document (Detached)
 ===
 
-gpg --output [SIGNATURE FILE NAME] --detach-sig [UNSIGNED FILE NAME]
+gpg --local-user [PREFERRED KEY ID] --output [SIGNATURE FILE NAME] --detach-sig [UNSIGNED FILE NAME]
 
 For ASCII output
 ---
 
-gpg --armor --output [SIGNATURE FILE NAME] --detach-sig [UNSIGNED FILE NAME]
+gpg --local-user [PREFERRED KEY ID] --armor --output [SIGNATURE FILE NAME] --detach-sig [UNSIGNED FILE NAME]
 
 ===
 Verifying Documents
 ===
 
-gpg --verify [SIGNED FILE NAME]
+gpg --local-user [PREFERRED KEY ID] --verify [SIGNED FILE NAME]
 
 For Detached Signatures
 ---
 
-gpg --verify [SIGNATURE FILE NAME] [UNSIGNED FILE NAME]
+gpg --local-user [PREFERRED KEY ID] --verify [SIGNATURE FILE NAME] [UNSIGNED FILE NAME]
 
 ===
 Ecrypting and Decrypting Documents
 ===
 
-gpg --output [ENCRYPTED FILE NAME] --encrypt --recipient [RECIPIENT KEY ID] [UNENCRYPTED FILE NAME]
+gpg --local-user [PREFERRED KEY ID] --output [ENCRYPTED FILE NAME] --encrypt --recipient [RECIPIENT KEY ID] [UNENCRYPTED FILE NAME]
 
-gpg --output [DECRYPTED FILE NAME] --decrypt [ENCRYPTED FILE NAME]
+gpg --local-user [PREFERRED KEY ID] --output [DECRYPTED FILE NAME] --decrypt [ENCRYPTED FILE NAME]
 
 
 Symmetric Cyphers
 ---
 
-gpg --output [ENCRYPTED FILE NAME] --symmetric [UNENCRYPTED FILE NAME]
+gpg --local-user [PREFERRED KEY ID] --output [ENCRYPTED FILE NAME] --symmetric [UNENCRYPTED FILE NAME]
 
 ===
 Distributing keys
@@ -99,6 +105,12 @@ Distributing keys
 gpg --keyserver [SERVER NAME] --recv-key [KEY ID]
 
 gpg --keyserver [SERVER NAME] --send-key [KEY ID]
+
+===
+Point GPG to a new home directory
+===
+
+gpg --homedir /path/to/gpg/keyring [other-commands]
 
 ===
 Obtaining secret key back for other purposes
@@ -146,6 +158,12 @@ Important commands in gpg prompt
 ===
 
 ** No key selected implies changes may be applied to the primary master key
+** this usually means first ID in the keyring is selected.
+
+** To select a specific key for signing or encrypting use --local-user switch.
+
+** [PREFERRED KEY ID] is the one you prefer for the operation from the keyring
+** if there are multiple valid signing / encrypted keys in your keyring.
 
 > adduid - Add a new user id
 > addkey - Add a new subkey

@@ -165,10 +165,13 @@ Important commands in gpg prompt
 ** [PREFERRED KEY ID] is the one you prefer for the operation from the keyring
 ** if there are multiple valid signing / encrypted keys in your keyring.
 
+** [uid] refers to an email in the selected key.
+
 > adduid - Add a new user id
 > addkey - Add a new subkey
 > key <id> - Select a key
 > uid <id> - Select a uid
+> uid 0 - Deselect all uids
 > sign - Sign a key
 > check - Check a key
 > fpr - Display fingerprint of the key

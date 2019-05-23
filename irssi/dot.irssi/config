@@ -2,7 +2,9 @@ servers = (
   {
     address = "irc.freenode.net";
     chatnet = "FREENODE";
+    #port = "6667";
     port = "6697";
+    #port = "7070";
     use_ssl = "yes";
     ssl_verify = "yes";
     autoconnect = "yes";
@@ -10,7 +12,7 @@ servers = (
   {
     address = "ftp.netbsd.org";
     chatnet = "NETBSD";
-    # port = "7326";
+    #port = "7326";
     use_tls = "no";
     tls_verify = "no";
     autoconnect = "yes";
@@ -18,11 +20,18 @@ servers = (
   {
     address = "irc.oftc.net";
     chatnet = "OFTC";
-    port = "6697";
-    use_ssl = "yes";
-    use_tls = "yes";
-    tls_cert = "~/.irssi/certs/fragger_fox.pem";
-    tls_verify = "yes";
+    #port = "6697";
+    #use_ssl = "yes";
+    #use_tls = "yes";
+    #tls_cert = "~/.irssi/certs/fragger_fox.pem";
+    #tls_verify = "yes";
+    port = "6667";
+    autoconnect = "yes";
+  },
+  {
+    address = "efnet.port80.se";
+    chatnet = "EFNET";
+    port = "6667";
     autoconnect = "yes";
   }
 );
@@ -30,7 +39,7 @@ servers = (
 chatnets = {
   FREENODE = {
     type = "IRC";
-    autosendcmd = "^nick fragger_fox;wait 300000";
+    #autosendcmd = "^msg nickserv identify PASSWORD fragger_fox;wait 300000";
     max_kicks = "4";
     max_msgs = "4";
     max_whois = "5";
@@ -51,6 +60,15 @@ chatnets = {
     user_name = "fragger_fox";
   };
 
+  EFNET = {
+    type = "IRC";
+    nick = "_fox_";
+    max_kicks = "4";
+    max_msgs = "4";
+    max_whois = "5";
+    user_name = "fragger_fox";
+  };
+
   NETBSD = { type = "ICB"; };
 };
 
@@ -58,9 +76,13 @@ channels = (
   { name = "#badnicks"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#bsdin"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#bkmc"; chatnet = "FREENODE"; autojoin = "Yes"; },
+  { name = "#netbsd-code"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#pkgsrc"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#hillhacks"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#hackbeach"; chatnet = "OFTC"; autojoin = "Yes"; },
+  { name = "#cad"; chatnet = "OFTC"; autojoin = "Yes"; },
+  { name = "#cad_internal"; chatnet = "OFTC"; autojoin = "Yes"; },
+  { name = "#bsdports"; chatnet = "EFNET"; autojoin = "Yes"; },
   {
     name = "#hackbeach-server";
     chatnet = "OFTC";
@@ -302,13 +324,23 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
+        name = "#netbsd-code";
+        tag = "freenode";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
         name = "#pkgsrc";
         tag = "freenode";
       }
     );
   };
-  6 = { name = "hilight"; sticky = "yes"; };
-  7 = {
+  7 = { name = "hilight"; sticky = "yes"; };
+  8 = {
     items = (
       {
         type = "CHANNEL";
@@ -318,7 +350,7 @@ windows = {
       }
     );
   };
-  8 = {
+  9 = {
     items = (
       {
         type = "CHANNEL";
@@ -328,17 +360,17 @@ windows = {
       }
     );
   };
-  9 = {
+  10 = {
     items = (
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#hackbeach-server";
+        name = "#cad";
         tag = "oftc";
       }
     );
   };
-  10 = {
+  11 = {
     items = (
       {
         type = "CHANNEL";
@@ -348,11 +380,21 @@ windows = {
       }
     );
   };
+  12 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#bsdports";
+        tag = "efnet";
+      }
+    );
+  };
 };
 
 mainwindows = {
   2 = { first_line = "8"; lines = "54"; };
-  6 = { first_line = "1"; lines = "7"; };
+  7 = { first_line = "1"; lines = "7"; };
 };
 
 logs = { OPEN = { level = "ALL"; }; };

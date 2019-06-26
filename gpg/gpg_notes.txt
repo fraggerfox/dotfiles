@@ -44,6 +44,8 @@ gpg --local-user [PREFERRED KEY ID] --edit-key [IMPORTED KEY ID]
 >fpr (verify fingerprint)
 >sign (sign the key)
 >check (check the key)
+>disable (disable the key)
+>enable (enable the key, not required unless disabled)
 
 ===
 Signing Document (Compressed)
@@ -183,3 +185,5 @@ After a key / uid is selected then you apply
 > revkey - Revoke a key
 > revsig - Revoke a signature
 > trust - Change the trust level of a key
+> disable - Disable the chosen key
+> enable - Enable the chosen key

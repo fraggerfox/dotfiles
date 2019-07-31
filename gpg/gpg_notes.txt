@@ -187,3 +187,4 @@ After a key / uid is selected then you apply
 > trust - Change the trust level of a key
 > disable - Disable the chosen key
 > enable - Enable the chosen key
+> primary - Set the currently selected uid as primary key

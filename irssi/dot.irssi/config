@@ -29,7 +29,8 @@ servers = (
     autoconnect = "yes";
   },
   {
-    address = "efnet.port80.se";
+#    address = "efnet.port80.se";
+    address = "irc.inet.tele.dk";
     chatnet = "EFNET";
     port = "6667";
     autoconnect = "yes";
@@ -76,20 +77,19 @@ channels = (
   { name = "#badnicks"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#bsdin"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#bkmc"; chatnet = "FREENODE"; autojoin = "Yes"; },
+  { name = "#netbsd"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#netbsd-code"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#pkgsrc"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#hillhacks"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#hackbeach"; chatnet = "OFTC"; autojoin = "Yes"; },
-  { name = "#cad"; chatnet = "OFTC"; autojoin = "Yes"; },
-  { name = "#cad_internal"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#bsdports"; chatnet = "EFNET"; autojoin = "Yes"; },
-  {
-    name = "#hackbeach-server";
-    chatnet = "OFTC";
-    autojoin = "yes";
-    password = "PASSWORD";
-  },
-  { name = "#planet-express"; chatnet = "OFTC"; autojoin = "Yes"; },
+#  {
+#    name = "#hackbeach-server";
+#    chatnet = "OFTC";
+#    autojoin = "yes";
+#    password = "PASSWORD";
+#  },
+#  { name = "#planet-express"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "netbsd"; chatnet = "NETBSD"; autojoin = "Yes"; }
 );
 
@@ -324,7 +324,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#netbsd-code";
+        name = "#netbsd";
         tag = "freenode";
       }
     );
@@ -334,13 +334,23 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
+        name = "#netbsd-code";
+        tag = "freenode";
+      }
+    );
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
         name = "#pkgsrc";
         tag = "freenode";
       }
     );
   };
-  7 = { name = "hilight"; sticky = "yes"; };
-  8 = {
+  8 = { name = "hilight"; sticky = "yes"; };
+  9 = {
     items = (
       {
         type = "CHANNEL";
@@ -350,7 +360,7 @@ windows = {
       }
     );
   };
-  9 = {
+  10 = {
     items = (
       {
         type = "CHANNEL";
@@ -360,27 +370,7 @@ windows = {
       }
     );
   };
-  10 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#cad";
-        tag = "oftc";
-      }
-    );
-  };
   11 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#planet-express";
-        tag = "oftc";
-      }
-    );
-  };
-  12 = {
     items = (
       {
         type = "CHANNEL";
@@ -394,7 +384,7 @@ windows = {
 
 mainwindows = {
   2 = { first_line = "8"; lines = "54"; };
-  7 = { first_line = "1"; lines = "7"; };
+  8 = { first_line = "1"; lines = "7"; };
 };
 
 logs = { OPEN = { level = "ALL"; }; };

@@ -158,6 +158,7 @@ Host hb-server
 
 Host fox-server
      HostName fox.trouble.is
+     AddressFamily inet
      IdentityFile ~/.ssh/id_rsa
      User santhosh
      Port 22
@@ -178,9 +179,16 @@ Host planet-express
      User fox
      Port 22
 
-Host freebsd-test-pe
+Host freebsd12-test-pe
      ProxyJump planet-express
      HostName 172.16.0.6
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22
+
+Host freebsd13-test-pe
+     ProxyJump planet-express
+     HostName 172.16.0.7
      IdentityFile ~/.ssh/id_rsa
      User fox
      Port 22
@@ -211,6 +219,12 @@ Host cvs.netbsd.org
      IdentityFile ~/.ssh/id_rsa_netbsd
      User fox
      ForwardAgent true
+
+Host ftp.NetBSD.org # For pkgsrc upload-distfiles
+     HostName ftp.netbsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_netbsd
+     User fox
 
 Host netbsd-mail # mail.netbsd.org (mail server)
      HostName homeworld.netbsd.org

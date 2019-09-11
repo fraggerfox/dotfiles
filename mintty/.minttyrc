@@ -1,9 +1,0 @@
-Transparency=low
-CursorType=block
-Font=Terminus
-FontHeight=9
-Locale=en_US
-Charset=UTF-8
-Language=en_US
-Term=xterm-256color
-Scrollbar=None

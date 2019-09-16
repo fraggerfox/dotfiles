@@ -32,3 +32,10 @@ set -o vi
 export LC_CTYPE="en_US.UTF-8"
 
 #tmux attach -d || tmux new
+
+# Allow the user to set the title.
+function title {
+   PROMPT_COMMAND="echo -ne \"\033]0;$1 (on $HOSTNAME)\007\""
+}
+
+title mintty

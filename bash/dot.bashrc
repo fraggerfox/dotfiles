@@ -14,7 +14,8 @@ shopt -s checkwinsize
 
 force_colored_prompt=yes
 
-alias ls='ls --color=auto -F'
+#alias ls='ls --color=auto -F'
+alias ls='ls -F'
 alias emacs='emacs -nw'
 #alias rm='rm -i' 
 #alias cp='cp -i'

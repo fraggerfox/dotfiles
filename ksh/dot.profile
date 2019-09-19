@@ -9,8 +9,9 @@ export PATH=${PATH}:/usr/X11R7/bin:/usr/X11R6/bin:/usr/local/sbin:/usr/local/bin
 #export PKG_PATH="${PKG_PATH};ftp://ftp.NetBSD.org/pub/pkgsrc/packages/NetBSD/$(uname -m)/6.0/All"
 
 export BLOCKSIZE=1k
-
 export HOST="$(hostname)"
+export HISTSIZE=50000
+export HISTFILE=$HOME/.ksh_history
 
 if [ -x /usr/bin/tset ]; then
 	eval $(tset -sQrm 'unknown:?unknown')
@@ -26,12 +27,14 @@ export EDITOR=vi
 export PAGER=less
 
 # some useful aliases
+alias c='clear'
 alias h='fc -l'
 alias j=jobs
 alias m=$PAGER
 alias ll='ls -laFo'
 alias l='ls -l'
 alias g='egrep -i'
+alias ls='ls -F'
 
 # # be paranoid
 # alias cp='cp -ip'
@@ -47,3 +50,6 @@ fi
 export CVSEDITOR=vi
 export CVSROOT=anoncvs@anoncvs.NetBSD.org:/cvsroot
 export CVS_RSH=ssh
+
+# Sometimes on terminal reset, the backspace needs to be rebound
+stty erase '^?'

@@ -9,7 +9,7 @@ export HISTSIZE=500000
 export CVSEDITOR=vi
 #CVSROOT=anoncvs@anoncvs.NetBSD.org:/cvsroot
 export CVSROOT=fox@cvs.NetBSD.org:/cvsroot
-export CVS_RSH=ssh
+export CVS_RSH=ssh-cvs  # Uses the custom CVS script refer to CVS folder for this.
 
 export EDITOR=vi
 

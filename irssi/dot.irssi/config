@@ -9,10 +9,10 @@ servers = (
     autoconnect = "yes";
   },
   {
-    address = "irc.libera.net";
+    address = "irc.libera.chat";
     chatnet = "LIBERA";
-    port = "6697";
-#    port = "7070";
+#    port = "6697";
+    port = "7000";
     use_ssl = "yes";
     ssl_verify = "yes";
     autoconnect = "yes";
@@ -66,9 +66,9 @@ chatnets = {
     max_kicks = "4";
     max_msgs = "4";
     max_whois = "5";
-#    sasl_mechanism = "PLAIN";
-#    sasl_username = "fragger_fox";
-#    sasl_password = "PASSWORD";
+    sasl_mechanism = "PLAIN";
+    sasl_username = "fragger_fox";
+    sasl_password = "PASSWORD";
     nick = "fragger_fox";
     user_name = "fragger_fox";
   };
@@ -376,8 +376,18 @@ windows = {
       }
     );
   };
-  8 = { name = "hilight"; sticky = "yes"; };
-  9 = {
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#htop";
+        tag = "freenode";
+      }
+    );
+  };
+  9 = { name = "hilight"; sticky = "yes"; };
+  10 = {
     items = (
       {
         type = "CHANNEL";
@@ -387,7 +397,7 @@ windows = {
       }
     );
   };
-  10 = {
+  11 = {
     items = (
       {
         type = "CHANNEL";
@@ -397,7 +407,7 @@ windows = {
       }
     );
   };
-  11 = {
+  12 = {
     items = (
       {
         type = "CHANNEL";
@@ -411,7 +421,7 @@ windows = {
 
 mainwindows = {
   2 = { first_line = "8"; lines = "54"; };
-  8 = { first_line = "1"; lines = "7"; };
+  9 = { first_line = "1"; lines = "7"; };
 };
 
 logs = { OPEN = { level = "ALL"; }; };

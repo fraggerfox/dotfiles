@@ -2,9 +2,17 @@ servers = (
   {
     address = "irc.freenode.net";
     chatnet = "FREENODE";
-    #port = "6667";
     port = "6697";
-    #port = "7070";
+#    port = "7070";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.libera.net";
+    chatnet = "LIBERA";
+    port = "6697";
+#    port = "7070";
     use_ssl = "yes";
     ssl_verify = "yes";
     autoconnect = "yes";
@@ -12,7 +20,7 @@ servers = (
   {
     address = "ftp.netbsd.org";
     chatnet = "NETBSD";
-    #port = "7326";
+ #   port = "7326";
     use_tls = "no";
     tls_verify = "no";
     autoconnect = "yes";
@@ -20,12 +28,11 @@ servers = (
   {
     address = "irc.oftc.net";
     chatnet = "OFTC";
-    #port = "6697";
-    #use_ssl = "yes";
-    #use_tls = "yes";
-    #tls_cert = "~/.irssi/certs/fragger_fox.pem";
-    #tls_verify = "yes";
     port = "6667";
+#    use_ssl = "yes";
+#    use_tls = "yes";
+#    tls_cert = "~/.irssi/certs/fragger_fox.pem";
+#    tls_verify = "yes";
     autoconnect = "yes";
   },
   {
@@ -40,13 +47,28 @@ servers = (
 chatnets = {
   FREENODE = {
     type = "IRC";
-    #autosendcmd = "^msg nickserv identify PASSWORD fragger_fox;wait 300000";
+#    autosendcmd = "^msg nickserv identify PASSWORD fragger_fox;wait 300000";
+#    autosendcmd = "^nick fragger_fox;wait 300000";
     max_kicks = "4";
     max_msgs = "4";
     max_whois = "5";
     sasl_mechanism = "PLAIN";
     sasl_username = "fragger_fox";
     sasl_password = "PASSWORD";
+    nick = "fragger_fox";
+    user_name = "fragger_fox";
+  };
+
+  LIBERA = {
+    type = "IRC";
+#    autosendcmd = "^msg nickserv identify PASSWORD fragger_fox;wait 300000";
+#    autosendcmd = "^nick fragger_fox;wait 300000";
+    max_kicks = "4";
+    max_msgs = "4";
+    max_whois = "5";
+#    sasl_mechanism = "PLAIN";
+#    sasl_username = "fragger_fox";
+#    sasl_password = "PASSWORD";
     nick = "fragger_fox";
     user_name = "fragger_fox";
   };
@@ -70,18 +92,24 @@ chatnets = {
     user_name = "fragger_fox";
   };
 
-  NETBSD = { type = "ICB"; };
+  NETBSD = {
+    nick = "_fox_";
+    type = "ICB";
+  };
 };
 
 channels = (
   { name = "#badnicks"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#bsdin"; chatnet = "FREENODE"; autojoin = "Yes"; },
-  { name = "#bkmc"; chatnet = "FREENODE"; autojoin = "Yes"; },
+#  { name = "#bkmc"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#netbsd"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#netbsd-code"; chatnet = "FREENODE"; autojoin = "Yes"; },
+  { name = "#netbsd-qa"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#pkgsrc"; chatnet = "FREENODE"; autojoin = "Yes"; },
+  { name = "#htop"; chatnet = "FREENODE"; autojoin = "Yes"; },
   { name = "#hillhacks"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#hackbeach"; chatnet = "OFTC"; autojoin = "Yes"; },
+#  { name = "#planet-express"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#bsdports"; chatnet = "EFNET"; autojoin = "Yes"; },
 #  {
 #    name = "#hackbeach-server";
@@ -89,8 +117,7 @@ channels = (
 #    autojoin = "yes";
 #    password = "PASSWORD";
 #  },
-#  { name = "#planet-express"; chatnet = "OFTC"; autojoin = "Yes"; },
-  { name = "netbsd"; chatnet = "NETBSD"; autojoin = "Yes"; }
+  { name = "netbsd"; chatnet = "NETBSD"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -314,7 +341,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#bkmc";
+        name = "#netbsd";
         tag = "freenode";
       }
     );
@@ -324,7 +351,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#netbsd";
+        name = "#netbsd-code";
         tag = "freenode";
       }
     );
@@ -334,7 +361,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#netbsd-code";
+        name = "#netbsd-qa";
         tag = "freenode";
       }
     );

@@ -99,14 +99,14 @@ chatnets = {
 };
 
 channels = (
-  { name = "#badnicks"; chatnet = "FREENODE"; autojoin = "Yes"; },
-  { name = "#bsdin"; chatnet = "FREENODE"; autojoin = "Yes"; },
-  #{ name = "#bkmc"; chatnet = "FREENODE"; autojoin = "Yes"; },
-  { name = "#netbsd"; chatnet = "FREENODE"; autojoin = "Yes"; },
-  { name = "#netbsd-code"; chatnet = "FREENODE"; autojoin = "Yes"; },
-  { name = "#netbsd-qa"; chatnet = "FREENODE"; autojoin = "Yes"; },
-  { name = "#pkgsrc"; chatnet = "FREENODE"; autojoin = "Yes"; },
-  { name = "#htop"; chatnet = "FREENODE"; autojoin = "Yes"; },
+  { name = "#badnicks"; chatnet = "LIBERA"; autojoin = "Yes"; },
+  { name = "#bsdin"; chatnet = "LIBERA"; autojoin = "Yes"; },
+  #{ name = "#bkmc"; chatnet = "LIBERA"; autojoin = "Yes"; },
+  { name = "#netbsd"; chatnet = "LIBERA"; autojoin = "Yes"; },
+  { name = "#netbsd-code"; chatnet = "LIBERA"; autojoin = "Yes"; },
+  { name = "#netbsd-qa"; chatnet = "LIBERA"; autojoin = "Yes"; },
+  { name = "#pkgsrc"; chatnet = "LIBERA"; autojoin = "Yes"; },
+  { name = "#htop"; chatnet = "LIBERA"; autojoin = "Yes"; },
   { name = "#hillhacks"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#hackbeach"; chatnet = "OFTC"; autojoin = "Yes"; },
   #{ name = "#planet-express"; chatnet = "OFTC"; autojoin = "Yes"; },
@@ -315,7 +315,7 @@ windows = {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#badnicks";
-        tag = "freenode";
+        tag = "libera";
       }
     );
   };
@@ -325,7 +325,7 @@ windows = {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#bsdin";
-        tag = "freenode";
+        tag = "libera";
       }
     );
   };
@@ -335,7 +335,7 @@ windows = {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#netbsd";
-        tag = "freenode";
+        tag = "libera";
       }
     );
   };
@@ -345,7 +345,7 @@ windows = {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#netbsd-code";
-        tag = "freenode";
+        tag = "libera";
       }
     );
   };
@@ -355,7 +355,7 @@ windows = {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#netbsd-qa";
-        tag = "freenode";
+        tag = "libera";
       }
     );
   };
@@ -365,7 +365,7 @@ windows = {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#pkgsrc";
-        tag = "freenode";
+        tag = "libera";
       }
     );
   };
@@ -375,7 +375,7 @@ windows = {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#htop";
-        tag = "freenode";
+        tag = "libera";
       }
     );
   };

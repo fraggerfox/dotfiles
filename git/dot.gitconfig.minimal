@@ -3,6 +3,8 @@
 	autocrlf = false
 	compression = 0
 #	fileMode = false
+[pager]
+	branch = false
 [user]
 	name =
 	email =

@@ -14,6 +14,8 @@
   	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lgwf = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --numstat
 	lgf = log --follow --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	# Shorthand for lg piped to head
+	lgh = !git lg | head
 
 	# Snapshoting using git stash
 	# http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/

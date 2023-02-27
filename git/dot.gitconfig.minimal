@@ -22,6 +22,9 @@
 	# https://github.com/claucece/dotfiles/blob/master/.gitconfig
 	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 	snapshots = !git stash list --grep snapshot
+	pushfwl = push --force-with-lease
+	pushf = push --force-with-lease
+        pusht = push --tags
 
 #[mergetool "ediff"]
 #	path = /usr/bin/emacs -Q "$@"

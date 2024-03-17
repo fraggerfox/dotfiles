@@ -9,6 +9,10 @@ Host byisystems.com
      IdentityFile ~/.ssh/id_rsa_byi
      User git
 
+Host git.byisystems.com
+     IdentityFile ~/.ssh/id_rsa_byi
+     User git
+
 Host git.drup1.net
      IdentityFile ~/.ssh/id_rsa_keenfx
      User git
@@ -74,10 +78,12 @@ Host fox-psi-lan
      Port 22
 
 Host fox-omega-lan
-     HostName 10.10.0.100
+     HostName 10.0.0.100
      IdentityFile ~/.ssh/id_rsa
+     HostKeyAlgorithms +ssh-rsa
+     PubkeyAcceptedKeyTypes +ssh-rsa
      User root
-     Port 10122
+     Port 22
 
 Host fox-omega-port0
      HostName fraggerfox.port0.org
@@ -115,6 +121,21 @@ Host fox-iota
      User fox
      Port 42222
 
+# Sourceforge.net stuff
+
+Host sf-shell
+     Hostname shell.sourceforge.net
+     IdentityFile ~/.ssh/id_rsa
+     User fragger_fox
+     RemoteCommand create
+     RequestTTY force
+     PreferredAuthentications publickey
+
+Host sf-sftp
+     Hostname web.sourceforge.net
+     IdentityFile ~/.ssh/id_rsa
+     User fragger_fox
+
 # Cherry's Stuff
 
 Host kek-server
@@ -145,7 +166,6 @@ Host byi-web-server
      Hostname 128.199.87.51
      IdentityFile ~/.ssh/id_rsa_byi
      User fox
-     #User root
      Port 22
 
 # Trouble's Stuff
@@ -163,7 +183,7 @@ Host fox-server
      User santhosh
      Port 22
 
-# Abhimanyu Server
+# Hetzner Servers
 
 Host manyu-server
      HostName 192.99.6.219
@@ -172,21 +192,25 @@ Host manyu-server
      Port 22
 
 Host planet-express
-#     HostName 144.76.78.188
-#     HostName 144.76.78.226
-     HostName planet-express.manyu.in
+     HostName planet-express.in
      IdentityFile ~/.ssh/id_rsa
      User fox
      Port 22
 
-Host freebsd12-test-pe
+Host plex-nix
+     HostName bessie.planet-express.in
+     IdentityFile ~/.ssh/id_rsa
+     User root
+     Port 22
+
+Host freebsd-build-pe
      ProxyJump planet-express
      HostName 172.16.0.6
      IdentityFile ~/.ssh/id_rsa
      User fox
      Port 22
 
-Host freebsd13-test-pe
+Host freebsd-current-pe
      ProxyJump planet-express
      HostName 172.16.0.7
      IdentityFile ~/.ssh/id_rsa
@@ -200,12 +224,26 @@ Host netbsd-build-pe
      User fox
      Port 22
 
+Host netbsd-current-pe
+     ProxyJump planet-express
+     HostName 172.16.0.9
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22
+
 Host ubuntu-test-pe
      ProxyJump planet-express
      HostName 172.16.0.2
      IdentityFile ~/.ssh/id_rsa
      User fox
      Port 22
+
+# Nemo's stuff
+
+Host nemo-server
+     HostName sydney.captnemo.in
+     User fraggerfox
+     Port 222
 
 # NetBSD Stuff
 
@@ -242,6 +280,44 @@ Host netbsd-www # {www,gnats,wiki}.NetBSD.org (http/gnats server)
      HostName mollari.netbsd.org
      PubKeyAuthentication yes
      IdentityFile ~/.ssh/id_rsa_netbsd
+     User fox
+
+# FreeBSD Stuff
+
+Host keycheck.freebsd.org
+     HostName keycheck.freebsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_freebsd
+     User fox
+
+Host keymaster.freebsd.org
+     HostName keymaster.freebsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_freebsd
+     User fox
+
+Host repo.freebsd.org
+     HostName repo.freebsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_freebsd
+     User fox
+
+Host gitrepo.freebsd.org
+     HostName gitrepo.freebsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_freebsd
+     User git
+
+Host freebsd-shell # freefall.freebsd.org (mail server)
+     HostName freefall.freebsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_freebsd
+     User fox
+
+Host freebsd-ref13-i386 # freefall.freebsd.org (mail server)
+     HostName ref13-i386.freebsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_freebsd
      User fox
 
 # Generic settings for all hosts

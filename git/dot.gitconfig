@@ -1,5 +1,5 @@
 [core]
-	editor = emacs
+	editor = emacsclient-nox -t -c
 	autocrlf = false
 	compression = 0
 #	fileMode = false
@@ -32,11 +32,18 @@
 	snapshots = !git stash list --grep snapshot
 	pushfwl = push --force-with-lease
 	pushf = push --force-with-lease
-        pusht = push --tags
+	pusht = push --tags
+
+[oh-my-zsh]
+	hide-info = 1
+	hide-status = 1
+	hide-dirty = 1
 
 #[mergetool "ediff"]
 #	path = /usr/bin/emacs -Q "$@"
+
 #[url "https://ghp_private_key@github.com/"]
 #	insteadOf = https://github.com/
+
 #[commit]
 #	gpgsign = true

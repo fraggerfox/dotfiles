@@ -1,5 +1,7 @@
 [core]
-	editor = emacsclient-nox -t -c
+#	editor = emacsclient -t -c
+#	editor = emacs
+	editor = vi
 	autocrlf = false
 	compression = 0
 #	excludesfiles = ~/.gitignore_global
@@ -40,11 +42,12 @@
 	pushff = push --force
 	pushf = push --force-with-lease
 	pusht = push --tags
+	npdiff = !git --no-pager diff
 
-[oh-my-zsh]
-	hide-info = 1
-	hide-status = 1
-	hide-dirty = 1
+#[oh-my-zsh]
+#	hide-info = 1
+#	hide-status = 1
+#	hide-dirty = 1
 
 #[mergetool "ediff"]
 #	path = /usr/bin/emacs -Q "$@"

@@ -196,8 +196,15 @@ Host planet-express
      IdentityFile ~/.ssh/id_rsa
      User fox
      Port 22
+     ForwardAgent true
 
-Host plex-nix
+Host code.planet-express.in
+     HostName code.planet-express.in
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22
+
+Host bessie
      HostName bessie.planet-express.in
      IdentityFile ~/.ssh/id_rsa
      User root
@@ -237,6 +244,24 @@ Host ubuntu-test-pe
      IdentityFile ~/.ssh/id_rsa
      User fox
      Port 22
+
+Host planet-express-x # planet-express with X forwarding
+     HostName planet-express.in
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22
+     ForwardX11 yes
+     ForwardX11Trusted yes
+
+Host netbsd-build-x # netbsd-build with X forwarding
+     HostName 172.16.0.5
+     IdentityFile ~/.ssh/id_rsa
+     User fox
+     Port 22
+     ProxyJump planet-express-x
+     ForwardX11 yes
+     ForwardX11Trusted yes
+     SetEnv TERM=xterm-256color
 
 # Nemo's stuff
 
@@ -314,8 +339,26 @@ Host freebsd-shell # freefall.freebsd.org (mail server)
      IdentityFile ~/.ssh/id_rsa_freebsd
      User fox
 
-Host freebsd-ref13-i386 # freefall.freebsd.org (mail server)
+Host freebsd-ref13-i386
      HostName ref13-i386.freebsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_freebsd
+     User fox
+
+Host freebsd-ref14-i386
+     HostName ref14-i386.freebsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_freebsd
+     User fox
+
+Host freebsd-ref14-aarch64
+     HostName ref14-aarch64.freebsd.org
+     PubKeyAuthentication yes
+     IdentityFile ~/.ssh/id_rsa_freebsd
+     User fox
+
+Host freebsd-ref13-aarch64
+     HostName ref13-aarch64.freebsd.org
      PubKeyAuthentication yes
      IdentityFile ~/.ssh/id_rsa_freebsd
      User fox

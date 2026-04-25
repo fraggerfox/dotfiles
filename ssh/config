@@ -1,123 +1,62 @@
 # Git protocol
 
-Host fooobar.mooo.com
-     IdentityFile ~/.ssh/id_rsa
-     User git
-     Port 10022
-
-Host byisystems.com
-     IdentityFile ~/.ssh/id_rsa_byi
-     User git
-
-Host git.byisystems.com
-     IdentityFile ~/.ssh/id_rsa_byi
-     User git
-
-Host git.drup1.net
-     IdentityFile ~/.ssh/id_rsa_keenfx
-     User git
-
 Host github.com
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User git
+
+Host code.planet-express.in
+     HostName code.planet-express.in
+     IdentityFile ~/.ssh/id_ed25519
+     User gitea
+     Port 22
+
+Host git.planet-express.in
+     HostName git.planet-express.in
+     IdentityFile ~/.ssh/id_ed25519
+     User git
+     Port 22222
 
 # Personal Stuff
 
 Host fox-pi-lan
      HostName 10.10.0.16
-     IdentityFile ~/.ssh/id_rsa
-     User fox
-     Port 11122
-
-Host fox-pi-noip
-     HostName fraggerfox.no-ip.org
-     IdentityFile ~/.ssh/id_rsa
-     User fox
-     Port 11122
-
-Host fox-pi-port0
-     HostName fraggerfox.port0.org
-     IdentityFile ~/.ssh/id_rsa
-     User fox
-     Port 11122
-
-Host fox-pi-ftpsh
-     HostName fraggerfox.ftp.sh
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 11122
 
 Host fox-zeta-lan
      HostName 10.10.0.6
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22
 
-Host fox-zeta-port0
-     HostName fraggerfox.port0.org
-     IdentityFile ~/.ssh/id_rsa
-     User fox
-     Port 10022
-
-Host fox-zeta-ftpsh
-     HostName fraggerfox.ftp.sh
-     IdentityFile ~/.ssh/id_rsa
-     User fox
-     Port 10022
-
-Host fox-zeta-noip
-     HostName fraggerfox.no-ip.org
-     IdentityFile ~/.ssh/id_rsa
-     User fox
-     Port 10022
-
 Host fox-psi-lan
      HostName 10.10.0.110
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User root
      Port 22
 
 Host fox-omega-lan
      HostName 10.0.0.100
-     IdentityFile ~/.ssh/id_rsa
-     HostKeyAlgorithms +ssh-rsa
-     PubkeyAcceptedKeyTypes +ssh-rsa
+     IdentityFile ~/.ssh/id_ed25519
      User root
      Port 22
 
-Host fox-omega-port0
-     HostName fraggerfox.port0.org
-     IdentityFile ~/.ssh/id_rsa
-     User root
-     Port 10122
-
-Host fox-omega-noip
-     HostName fraggerfox.no-ip.org
-     IdentityFile ~/.ssh/id_rsa
-     User root
-     Port 10122
-
-Host fox-omega-ftpsh
-     HostName fraggerfox.ftp.sh
-     IdentityFile ~/.ssh/id_rsa
-     User root
-     Port 10122
-
 Host fox-theta
      HostName localhost
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22222
 
 Host fox-sigma
      HostName localhost
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 32222
 
 Host fox-iota
      HostName localhost
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 42222
 
@@ -125,7 +64,7 @@ Host fox-iota
 
 Host sf-shell
      Hostname shell.sourceforge.net
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fragger_fox
      RemoteCommand create
      RequestTTY force
@@ -133,121 +72,71 @@ Host sf-shell
 
 Host sf-sftp
      Hostname web.sourceforge.net
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fragger_fox
 
-# Cherry's Stuff
-
-Host kek-server
-     HostName fooobar.mooo.com
-     IdentityFile ~/.ssh/id_rsa
-     User santhosh
-     Port 11022
-
-Host hh-server
-     HostName fooobar.mooo.com
-     IdentityFile ~/.ssh/id_rsa
-     User santhosh
-     Port 10922
-
-Host pub-server
-     HostName fooobar.mooo.com
-     IdentityFile ~/.ssh/id_rsa
-     User santhosh
-     Port 10022
-
-Host ma-server
-     HostName fooobar.mooo.com
-     IdentityFile ~/.ssh/id_rsa
-     User santhosh
-     Port 11122
-
-Host byi-web-server
-     Hostname 128.199.87.51
-     IdentityFile ~/.ssh/id_rsa_byi
-     User fox
-     Port 22
-
 # Trouble's Stuff
-
-Host hb-server
-     HostName hackbeach.trouble.is
-     IdentityFile ~/.ssh/id_rsa
-     User santhosh
-     Port 22
 
 Host fox-server
      HostName fox.trouble.is
      AddressFamily inet
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User santhosh
      Port 22
 
 # Hetzner Servers
 
-Host manyu-server
-     HostName 192.99.6.219
-     IdentityFile ~/.ssh/id_rsa
-     User santosh
-     Port 22
-
 Host planet-express
      HostName planet-express.in
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22
      ForwardAgent true
 
-Host code.planet-express.in
-     HostName code.planet-express.in
-     IdentityFile ~/.ssh/id_rsa
-     User fox
-     Port 22
-
 Host bessie
      HostName bessie.planet-express.in
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User root
      Port 22
 
 Host freebsd-build-pe
      ProxyJump planet-express
      HostName 172.16.0.6
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22
 
 Host freebsd-current-pe
      ProxyJump planet-express
      HostName 172.16.0.7
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22
 
 Host netbsd-build-pe
      ProxyJump planet-express
      HostName 172.16.0.5
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22
 
 Host netbsd-current-pe
      ProxyJump planet-express
      HostName 172.16.0.9
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22
 
 Host ubuntu-test-pe
      ProxyJump planet-express
      HostName 172.16.0.2
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22
 
 Host planet-express-x # planet-express with X forwarding
      HostName planet-express.in
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22
      ForwardX11 yes
@@ -255,20 +144,13 @@ Host planet-express-x # planet-express with X forwarding
 
 Host netbsd-build-x # netbsd-build with X forwarding
      HostName 172.16.0.5
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22
      ProxyJump planet-express-x
      ForwardX11 yes
      ForwardX11Trusted yes
      SetEnv TERM=xterm-256color
-
-# Nemo's stuff
-
-Host nemo-server
-     HostName sydney.captnemo.in
-     User fraggerfox
-     Port 222
 
 # NetBSD Stuff
 

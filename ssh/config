@@ -63,7 +63,7 @@ Host fox-iota
 # Sourceforge.net stuff
 
 Host sf-shell
-     Hostname shell.sourceforge.net
+     HostName shell.sourceforge.net
      IdentityFile ~/.ssh/id_ed25519
      User fragger_fox
      RemoteCommand create
@@ -71,7 +71,7 @@ Host sf-shell
      PreferredAuthentications publickey
 
 Host sf-sftp
-     Hostname web.sourceforge.net
+     HostName web.sourceforge.net
      IdentityFile ~/.ssh/id_ed25519
      User fragger_fox
 
@@ -91,7 +91,7 @@ Host planet-express
      IdentityFile ~/.ssh/id_ed25519
      User fox
      Port 22
-     ForwardAgent true
+     ForwardAgent yes
 
 Host bessie
      HostName bessie.planet-express.in
@@ -156,94 +156,103 @@ Host netbsd-build-x # netbsd-build with X forwarding
 
 Host wip.pkgsrc.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
 
 Host cvs.netbsd.org
      HostName cvs.netbsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_netbsd
+     IdentityFile ~/.ssh/id_ed25519_netbsd
      User fox
-     ForwardAgent true
+     ForwardAgent yes
 
 Host ftp.NetBSD.org # For pkgsrc upload-distfiles
      HostName ftp.netbsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_netbsd
+     IdentityFile ~/.ssh/id_ed25519_netbsd
      User fox
+     SetEnv TERM=xterm-256color
 
 Host netbsd-mail # mail.netbsd.org (mail server)
      HostName homeworld.netbsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_netbsd
+     IdentityFile ~/.ssh/id_ed25519_netbsd
      User fox
+     SetEnv TERM=xterm-256color
 
 Host netbsd-ftp # {ftp,sup}.NetBSD.org (ftp/sup/rsync server)
      HostName morden.netbsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_netbsd
+     IdentityFile ~/.ssh/id_ed25519_netbsd
      User fox
+     SetEnv TERM=xterm-256color
 
 Host netbsd-www # {www,gnats,wiki}.NetBSD.org (http/gnats server)
      HostName mollari.netbsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_netbsd
+     IdentityFile ~/.ssh/id_ed25519_netbsd
      User fox
+     SetEnv TERM=xterm-256color
 
 # FreeBSD Stuff
 
 Host keycheck.freebsd.org
      HostName keycheck.freebsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_freebsd
+     IdentityFile ~/.ssh/id_ed25519_freebsd
      User fox
 
 Host keymaster.freebsd.org
      HostName keymaster.freebsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_freebsd
+     IdentityFile ~/.ssh/id_ed25519_freebsd
      User fox
 
 Host repo.freebsd.org
      HostName repo.freebsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_freebsd
+     IdentityFile ~/.ssh/id_ed25519_freebsd
      User fox
 
 Host gitrepo.freebsd.org
      HostName gitrepo.freebsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_freebsd
+     IdentityFile ~/.ssh/id_ed25519_freebsd
      User git
 
 Host freebsd-shell # freefall.freebsd.org (mail server)
      HostName freefall.freebsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_freebsd
+     IdentityFile ~/.ssh/id_ed25519_freebsd
      User fox
+     SetEnv TERM=xterm-256color
 
 Host freebsd-ref13-i386
      HostName ref13-i386.freebsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_freebsd
+     IdentityFile ~/.ssh/id_ed25519_freebsd
      User fox
+     SetEnv TERM=xterm-256color
 
 Host freebsd-ref14-i386
      HostName ref14-i386.freebsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_freebsd
+     IdentityFile ~/.ssh/id_ed25519_freebsd
      User fox
+     SetEnv TERM=xterm-256color
 
 Host freebsd-ref14-aarch64
      HostName ref14-aarch64.freebsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_freebsd
+     IdentityFile ~/.ssh/id_ed25519_freebsd
      User fox
+     SetEnv TERM=xterm-256color
 
 Host freebsd-ref13-aarch64
      HostName ref13-aarch64.freebsd.org
      PubKeyAuthentication yes
-     IdentityFile ~/.ssh/id_rsa_freebsd
+     IdentityFile ~/.ssh/id_ed25519_freebsd
      User fox
+     SetEnv TERM=xterm-256color
 
 # Generic settings for all hosts
 

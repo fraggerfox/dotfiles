@@ -17,8 +17,10 @@
                     "conditions": [
                         {
                             "type": "frontmost_application_if",
-                            "bundle_identifiers": [ 
-                                "^com\\.apple\\.Terminal" 
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.Terminal",
+                                "^com\\.googlecode\\.iterm2",
+                                "^net\\.kovidgoyal\\.kitty"
                             ]
                         }
                     ]
@@ -36,8 +38,10 @@
                     "conditions": [
                         {
                             "type": "frontmost_application_if",
-                            "bundle_identifiers": [ 
-                                "^com\\.apple\\.Terminal"
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.Terminal",
+                                "^com\\.googlecode\\.iterm2",
+                                "^net\\.kovidgoyal\\.kitty"
                             ]
                         }
                     ]
